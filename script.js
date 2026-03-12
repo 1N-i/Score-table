@@ -3,19 +3,12 @@ var player2 = {name: "Player 2", victories: 0, draws: 0, defeats: 0, points: 0};
 var player3 = {name: "Player 3", victories: 0, draws: 0, defeats: 0, points: 0};
 var player4 = {name: "Player 4", victories: 0, draws: 0, defeats: 0, points: 0};
 var player5 = {name: "Player 5", victories: 0, draws: 0, defeats: 0, points: 0};
+var players = [player1, player2, player3, player4, player5];
 
 function calculatePoints(player) {
   var points = (player.victories * 5) + (player.draws * 2) - (player.defeats * 3);
   return points;
 }
-
-player1.points = calculatePoints(player1);
-player2.points = calculatePoints(player2);
-player3.points = calculatePoints(player3);
-player4.points = calculatePoints(player4);
-player5.points = calculatePoints(player5);
-
-var players = [player1, player2, player3, player4, player5];
 
 function showPlayers(players) {
   var element = "";
@@ -33,8 +26,6 @@ function showPlayers(players) {
   var tablePlayers = document.getElementById("tablePlayers");
   tablePlayers.innerHTML = element;
 }
-
-showPlayers(players);
 
 function addVictory(i) {
   var player = players[i];
@@ -56,3 +47,11 @@ function addDefeat(i) {
   player.points = calculatePoints(player);
   showPlayers(players);
 }
+
+player1.points = calculatePoints(player1);
+player2.points = calculatePoints(player2);
+player3.points = calculatePoints(player3);
+player4.points = calculatePoints(player4);
+player5.points = calculatePoints(player5);
+
+showPlayers(players);

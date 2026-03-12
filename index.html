@@ -20,13 +20,18 @@
 
       <tbody id="tablePlayers">
         <tr>
-          <p>.</p>
           <td><button onClick="addVictory()">Victory</button></td>
           <td><button onClick="addDraw()">Draw</button></td>
           <td><button onClick="addDefeat()">Defeat</button></td>
         </tr>
       </tbody>
     </table>
+
+    <p>.</p>
+    <input type="number" id="numberPlayers" name="numberPlayers" min="1" step="1" placeholder="Insert number of players" required>
+    <p></p>
+    <button onClick="setPlayerNumber()">Show players</button>
+
     <script src="script.js"></script>
   </body>
 </html>

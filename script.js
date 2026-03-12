@@ -1,17 +1,14 @@
-var player1 = {name: "Player 1", victories: 0, draws: 0, defeats: 0, points: 0};
-var player2 = {name: "Player 2", victories: 0, draws: 0, defeats: 0, points: 0};
-var player3 = {name: "Player 3", victories: 0, draws: 0, defeats: 0, points: 0};
-var player4 = {name: "Player 4", victories: 0, draws: 0, defeats: 0, points: 0};
-var player5 = {name: "Player 5", victories: 0, draws: 0, defeats: 0, points: 0};
-var players = [player1, player2, player3, player4, player5];
-
+const player1 = {name: "Player 1", victories: 0, draws: 0, defeats: 0, points: 0};
+const player2 = {name: "Player 2", victories: 0, draws: 0, defeats: 0, points: 0};
+const players = [player1, player2];
+showPlayers(players);
 function calculatePoints(player) {
-  var points = (player.victories * 5) + (player.draws * 2) - (player.defeats * 3);
+  const points = (player.victories * 5) + (player.draws * 2) - (player.defeats * 3);
   return points;
 }
 
 function showPlayers(players) {
-  var element = "";
+  let element = "";
   for (var i = 0; i < players.length; i += 1) {
     element += "<tr><td>" + players[i].name + "</td>";
     element += "<td>" + players[i].victories + "</td>";
@@ -23,35 +20,38 @@ function showPlayers(players) {
     element += "<td><button onClick='addDefeat(" + i + ")'>Defeat</button></td>";
     element += "</tr>";
   }
-  var tablePlayers = document.getElementById("tablePlayers");
+  const tablePlayers = document.getElementById("tablePlayers");
   tablePlayers.innerHTML = element;
 }
 
 function addVictory(i) {
-  var player = players[i];
+  const player = players[i];
   player.victories += 1;
   player.points = calculatePoints(player);
   showPlayers(players);
 }
 
 function addDraw(i) {
-  var player = players[i];
+  const player = players[i];
   player.draws += 1;
   player.points = calculatePoints(player);
   showPlayers(players);
 }
 
 function addDefeat(i) {
-  var player = players[i];
+  const player = players[i];
   player.defeats += 1;
   player.points = calculatePoints(player);
   showPlayers(players);
 }
 
-player1.points = calculatePoints(player1);
-player2.points = calculatePoints(player2);
-player3.points = calculatePoints(player3);
-player4.points = calculatePoints(player4);
-player5.points = calculatePoints(player5);
-
-showPlayers(players);
+function setPlayerNumber() {
+  const numberPlayers = document.getElementById("numberPlayers")
+  const players = [];
+  for (var i = 0; i < numberPlayers; i += 1) {
+    const j = {name: `Player${i}`, victories: 0, draws: 0, defeats: 0, points: 0};
+    players.push(j);
+    j.points = calculatePoints(j);
+  }
+  showPlayers(players);
+}

@@ -1,27 +1,25 @@
 <html>
-  <head>
     <head>
-          <title>Tic-Tac-Toe</title>
-          <link rel="stylesheet" href="style.css">
-          <link rel="icon" href="app-icon.ico" type="image/x-icon">
-      </head>
+    <title>Score table</title>
+    <link rel="stylesheet" href="style.css">
   </head>
 
   <body>
-    <h1>Tabela de classificação</h1>
+    <h1>Score table</h1>
 
     <table style="width:100%">
       <thead>
         <tr>
-          <th>Nome</th>
-          <th>Vitórias</th>
-          <th>Empates</th>
-          <th>Derrotas</th>
-          <th>Pontos</th>
-          <th colspan="3">Ações</th>
+          <th>Name</th>
+          <th>Victories</th>
+          <th>Draws</th>
+          <th>Defeats</th>
+          <th>Points</th>
+          <th colspan="3">Actions: </th>
         </tr>
       </thead>
-      <tbody id="tabelaJogadores">
+
+      <tbody id="tablePlayers">
 
         <tr>
           <td></td>
@@ -29,20 +27,44 @@
           <td></td>
           <td></td>
           <td></td>
-          <td><button onClick="adicionarVitoria()">Vitória</button></td>
-          <td><button onClick="adicionarEmpate()">Empate</button></td>
-          <td><button onClick="adicionarDerrota()">Derrota</button></td>
+          <td><button onClick="addVictory()">Victory</button></td>
+          <td><button onClick="addDraw()">Draw</button></td>
+          <td><button onClick="addDefeat()">Defeat</button></td>
         </tr>
+
         <tr>
           <td></td>
           <td></td>
           <td></td>
           <td></td>
           <td></td>
-          <td><button onClick="adicionarVitoria()">Vitória</button></td>
-          <td><button onClick="adicionarEmpate()">Empate</button></td>
-          <td><button onClick="adicionarDerrota()">Derrota</button></td>
+          <td><button onClick="addVictory()">Victory</button></td>
+          <td><button onClick="addDraw()">Draw</button></td>
+          <td><button onClick="addDefeat()">Defeat</button></td>
         </tr>
+
+         <tr>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td><button onClick="addVictory()">Victory</button></td>
+          <td><button onClick="addDraw()">Draw</button></td>
+          <td><button onClick="addDefeat()">Defeat</button></td>
+        </tr>
+
+         <tr>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td><button onClick="addVictory()">Victory</button></td>
+          <td><button onClick="addDraw()">Draw</button></td>
+          <td><button onClick="addDefeat()">Defeat</button></td>
+        </tr>
+
       </tbody>
     </table>
     <script src="script.js"></script>

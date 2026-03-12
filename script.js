@@ -1,56 +1,58 @@
-var rafa = { nome: "Rafaela", vitorias: 0, empates: 0, derrotas: 0, pontos: 0 };
-var paulo = { nome: "Paulo", vitorias: 0, empates: 0, derrotas: 0, pontos: 0 };
+var player1 = {name: "Player 1", victories: 0, draws: 0, defeats: 0, points: 0};
+var player2 = {name: "Player 2", victories: 0, draws: 0, defeats: 0, points: 0};
+var player3 = {name: "Player 3", victories: 0, draws: 0, defeats: 0, points: 0};
+var player4 = {name: "Player 4", victories: 0, draws: 0, defeats: 0, points: 0};
+var player5 = {name: "Player 5", victories: 0, draws: 0, defeats: 0, points: 0};
 
-function calculaPontos(jogador) {
-  var pontos =
-    jogador.vitorias * 5 + jogador.empates * 2 - jogador.derrotas * 3;
-  return pontos;
+function calculatePoints(player) {
+  var points = (player.victories * 5) + (player.draws * 2) - (player.defeats * 3);
+  return points;
 }
 
-rafa.pontos = calculaPontos(rafa);
-paulo.pontos = calculaPontos(paulo);
+player1.points = calculatePoints(player1);
+player2.points = calculatePoints(player2);
+player3.points = calculatePoints(player3);
+player4.points = calculatePoints(player4);
+player5.points = calculatePoints(player5);
 
-var jogadores = [rafa, paulo];
+var players = [player1, player2, player3, player4, player5];
 
-function exibeJogadores(jogadores) {
-  var elemento = "";
-  for (var i = 0; i < jogadores.length; i += 1) {
-    elemento += "<tr><td>" + jogadores[i].nome + "</td>";
-    elemento += "<td>" + jogadores[i].vitorias + "</td>";
-    elemento += "<td>" + jogadores[i].empates + "</td>";
-    elemento += "<td>" + jogadores[i].derrotas + "</td>";
-    elemento += "<td>" + jogadores[i].pontos + "</td>";
-    elemento +=
-      "<td><button onClick='adicionarVitoria(" + i + ")'>Vitória</button></td>";
-    elemento +=
-      "<td><button onClick='adicionarEmpate(" + i + ")'>Empate</button></td>";
-    elemento +=
-      "<td><button onClick='adicionarDerrota(" + i + ")'>Derrota</button></td>";
-    elemento += "</tr>";
+function showPlayers(players) {
+  var element = "";
+  for (var i = 0; i < players.length; i += 1) {
+    element += "<tr><td>" + players[i].name + "</td>";
+    element += "<td>" + players[i].victories + "</td>";
+    element += "<td>" + players[i].draws + "</td>";
+    element += "<td>" + players[i].defeats + "</td>";
+    element += "<td>" + players[i].points + "</td>";
+    element += "<td><button onClick='addVictory(" + i + ")'>Victory</button></td>";
+    element += "<td><button onClick='addDraw(" + i + ")'>Draw</button></td>";
+    element += "<td><button onClick='addDefeat(" + i + ")'>Defeat</button></td>";
+    element += "</tr>";
   }
-  var tabelaJogadores = document.getElementById("tabelaJogadores");
-  tabelaJogadores.innerHTML = elemento;
+  var tablePlayers = document.getElementById("tablePlayers");
+  tablePlayers.innerHTML = element;
 }
 
-exibeJogadores(jogadores);
+showPlayers(players);
 
-function adicionarVitoria(i) {
-  var jogador = jogadores[i];
-  jogador.vitorias += 1;
-  jogador.pontos = calculaPontos(jogador);
-  exibeJogadores(jogadores);
+function addVictory(i) {
+  var player = players[i];
+  player.victories += 1;
+  player.points = calculatePoints(player);
+  showPlayers(players);
 }
 
-function adicionarEmpate(i) {
-  var jogador = jogadores[i];
-  jogador.empates += 1;
-  jogador.pontos = calculaPontos(jogador);
-  exibeJogadores(jogadores);
+function addDraw(i) {
+  var player = players[i];
+  player.draws += 1;
+  player.points = calculatePoints(player);
+  showPlayers(players);
 }
 
-function adicionarDerrota(i) {
-  var jogador = jogadores[i];
-  jogador.derrotas += 1;
-  jogador.pontos = calculaPontos(jogador);
-  exibeJogadores(jogadores);
+function addDefeat(i) {
+  var player = players[i];
+  player.defeats += 1;
+  player.points = calculatePoints(player);
+  showPlayers(players);
 }
